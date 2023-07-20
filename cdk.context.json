@@ -19,5 +19,11 @@
   "hosted-zone:account=675985711616:domainName=scalabledjango.com:region=us-east-2": {
     "Id": "/hostedzone/Z01910862PXLK96TD3E9L",
     "Name": "scalabledjango.com."
-  }
+  },
+  "availability-zones:account=149552728260:region=us-west-2": [
+    "us-west-2a",
+    "us-west-2b",
+    "us-west-2c",
+    "us-west-2d"
+  ]
 }
