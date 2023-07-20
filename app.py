@@ -11,7 +11,7 @@ app = cdk.App()
 pipeline = MyDjangoApiPipelineStack(
     app,
     "MyDjangoApiPipeline",
-    repository="marianobrc/scalable-django-rest",
+    repository="e-cortes-g/scalable-django-rest",
     branch="master",
     ssm_gh_connection_param="/Github/Connection",
     env=Environment(

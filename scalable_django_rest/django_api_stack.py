@@ -41,20 +41,20 @@ class MyDjangoAPI(Stack):
         # Prepare parameters
         self.container_name = f"django_app"
         # Retrieve the arn of the TLS certificate from SSM Parameter Store
-        self.certificate_arn = ssm.StringParameter.value_for_string_parameter(
-            self, f"/{scope.stage_name}/CertificateArn"
-        )
+        # self.certificate_arn = ssm.StringParameter.value_for_string_parameter(
+        #     self, f"/{scope.stage_name}/CertificateArn"
+        # )
         # Instantiate the certificate which will be required by the load balancer later
-        self.domain_certificate = acm.Certificate.from_certificate_arn(
-            self, "DomainCertificate", certificate_arn=self.certificate_arn
-        )
+        # self.domain_certificate = acm.Certificate.from_certificate_arn(
+        #     self, "DomainCertificate", certificate_arn=self.certificate_arn
+        # )
         # Create the load balancer, ECS service and fargate task for teh Django App
         self.alb_fargate_service = ecs_patterns.ApplicationLoadBalancedFargateService(
             self,
             f"MyDjangoApp",
-            protocol=elbv2.ApplicationProtocol.HTTPS,
-            certificate=self.domain_certificate,
-            redirect_http=True,
+            # protocol=elbv2.ApplicationProtocol.HTTPS,
+            # certificate=self.domain_certificate,
+            # redirect_http=True,
             platform_version=ecs.FargatePlatformVersion.VERSION1_4,
             cluster=self.ecs_cluster,  # Required
             task_subnets=ec2.SubnetSelection(
